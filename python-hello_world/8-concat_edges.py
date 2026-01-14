@@ -1,5 +1,5 @@
 #!/usr/bin/python3
+"""Print a new sentence using slices of str"""
 str = "Python is an interpreted, interactive, object-oriented programming\
  language that combines remarkable power with very clear syntax"
-string = str[39:67] + str[107:112] + str[0:6]
-print(f"{string}")
+print(str[39:67] + str[107:112] + str[0:6])
