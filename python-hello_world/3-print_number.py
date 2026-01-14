@@ -2,4 +2,4 @@
 """Print the value of a variable integer 'number'"""
 
 number = 98
-print("{}"(number))
+print(f"{number} Battery street")
