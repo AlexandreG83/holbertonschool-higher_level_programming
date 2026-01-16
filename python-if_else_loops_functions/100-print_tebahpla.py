@@ -1,3 +1,8 @@
 #!/usr/bin/python3
-for c in range(122, 96, -1):
-    print("{}".format(chr(c)), end='')
+for i in range(25, -1, -1):
+    case = ord('a') + i
+    if i % 2:
+        case = chr(case)
+    else:
+        case = chr(case).upper()
+    print(case, end='')
