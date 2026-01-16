@@ -5,4 +5,4 @@ for i in range(25, -1, -1):
         case = chr(case)
     else:
         case = chr(case).upper()
-    print(case, end='')
+    print("{}".format(case), end='')
