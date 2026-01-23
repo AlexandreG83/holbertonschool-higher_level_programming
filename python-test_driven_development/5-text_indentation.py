@@ -6,24 +6,23 @@ Module that prints a text with 2 new lines after '.', '?' and ':'.
 
 def text_indentation(text):
     """
-    Prints text with 2 new lines after '.', '?', and ':'.
+    Prints a text with 2 new lines after each '.', '?', and ':' characters.
+    No spaces at the beginning or end of each printed line.
 
     Args:
-        text (str): text to print
+        text: A string to process and print
 
     Raises:
-        TypeError: if text is not a string
+        TypeError: If text is not a string
     """
     if not isinstance(text, str):
         raise TypeError("text must be a string")
-    text = text.strip()
-    delimiters = ".?:"
-    start = 0
-    for i, char in enumerate(text):
-        if char in delimiters:
-            print(text[start:i + 1].strip())
+    line = ""
+    for char in text:
+        line += char
+        if char in '.?:':
+            print(line.strip())
             print()
-            start = i + 1
-    remaining = text[start:].strip()
-    if remaining:
-        print(remaining)
+            line = ""
+    if line.strip():
+        print(line.strip(), end="")
