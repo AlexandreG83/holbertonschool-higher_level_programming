@@ -1,0 +1,18 @@
+>>> text_indentation("Hello world. How are you?")
+Hello world.
+
+How are you?
+
+>>> text_indentation("This is fun: really fun. Isn't it?")
+This is fun:
+
+really fun.
+
+Isn't it?
+
+>>> text_indentation("No punctuation here")
+No punctuation here
+
+>>> text_indentation(12)
+Traceback (most recent call last):
+TypeError: text must be a string
