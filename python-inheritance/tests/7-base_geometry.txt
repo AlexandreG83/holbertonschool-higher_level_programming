@@ -1,22 +1,63 @@
-#!/usr/bin/python3
-BaseGeometry = __import__('7-base_geometry').BaseGeometry
+1. **Type checking**: Using `type(value) is not int` instead of `isinstance(value, int)` because `isinstance` would accept booleans (since `bool` is a subclass of `int`), which we want to reject.
 
-bg = BaseGeometry()
+2. **Error messages**: The exact format matches the expected output with the parameter name included.
 
-bg.integer_validator("my_int", 12)
-bg.integer_validator("width", 89)
+3. **Order of validation**: Type is checked before value range to match the expected behavior.
 
-try:
-    bg.integer_validator("name", "John")
-except Exception as e:
-    print("[{}] {}".format(e.__class__.__name__, e))
+You'll also need to create test cases in `tests/7-base_geometry.txt`. Here's a comprehensive test file:
+```
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> bg = BaseGeometry()
 
-try:
-    bg.integer_validator("age", 0)
-except Exception as e:
-    print("[{}] {}".format(e.__class__.__name__, e))
+Test valid integers:
+>>> bg.integer_validator("my_int", 12)
+>>> bg.integer_validator("width", 89)
+>>> bg.integer_validator("height", 1)
 
-try:
-    bg.integer_validator("distance", -4)
-except Exception as e:
-    print("[{}] {}".format(e.__class__.__name__, e))
+Test with string:
+>>> bg.integer_validator("name", "John")
+Traceback (most recent call last):
+    ...
+TypeError: name must be an integer
+
+Test with zero:
+>>> bg.integer_validator("age", 0)
+Traceback (most recent call last):
+    ...
+ValueError: age must be greater than 0
+
+Test with negative:
+>>> bg.integer_validator("distance", -4)
+Traceback (most recent call last):
+    ...
+ValueError: distance must be greater than 0
+
+Test with float:
+>>> bg.integer_validator("average", 3.14)
+Traceback (most recent call last):
+    ...
+TypeError: average must be an integer
+
+Test with boolean:
+>>> bg.integer_validator("flag", True)
+Traceback (most recent call last):
+    ...
+TypeError: flag must be an integer
+
+Test with None:
+>>> bg.integer_validator("value", None)
+Traceback (most recent call last):
+    ...
+TypeError: value must be an integer
+
+Test with list:
+>>> bg.integer_validator("numbers", [1, 2, 3])
+Traceback (most recent call last):
+    ...
+TypeError: numbers must be an integer
+
+Test area method:
+>>> bg.area()
+Traceback (most recent call last):
+    ...
+Exception: area() is not implemented
