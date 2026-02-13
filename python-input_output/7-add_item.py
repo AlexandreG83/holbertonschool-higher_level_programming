@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""Script that adds command line arguments to a list and saves it to a JSON file."""
+"""Script that adds command line arguments to a list
+and saves it to a JSON file."""
 
 import sys
 
