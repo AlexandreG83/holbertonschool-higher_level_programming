@@ -1,6 +1,6 @@
 -- Lists all shows and their genres, NULL if no genre
-SELECT s.title, g.name
-FROM tv_shows s
-LEFT JOIN tv_show_genres tsg ON s.id = tsg.tv_show_id
-LEFT JOIN genres g ON tsg.genre_id = g.id
-ORDER BY s.title ASC, g.name ASC;
+SELECT tv_shows.title, tv_genres.name
+FROM tv_shows
+LEFT JOIN tv_show_genres ON tv_shows.id = tv_show_genres.show_id
+LEFT JOIN tv_genres ON tv_genres.id = tv_show_genres.genre_id
+ORDER BY tv_shows.title ASC, tv_genres.name ASC;
