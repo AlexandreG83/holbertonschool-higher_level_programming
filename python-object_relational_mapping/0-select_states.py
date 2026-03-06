@@ -24,14 +24,15 @@ def list_states():
         user=username,
         passwd=password,
         db=database,
-        charset="utf8"
     )
-    cursor = db.cursor()
-    cursor.execute("SELECT * FROM states ORDER BY id ASC")
-    rows = cursor.fetchall()
-    for row in rows:
+    
+    cur = db.cursor()
+    cur.execute("SELECT * FROM states ORDER BY id ASC")
+    
+    for row in cur.fetchall():
         print(row)
-    cursor.close()
+    
+    cur.close()
     db.close()
 
 
