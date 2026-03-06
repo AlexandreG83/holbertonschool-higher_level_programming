@@ -7,6 +7,7 @@ import MySQLdb
 import sys
 
 if __name__ == "__main__":
+    """Connect to MySQL and print all states"""
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
@@ -16,7 +17,8 @@ if __name__ == "__main__":
         port=3306,
         user=username,
         passwd=password,
-        db=database
+        db=database,
+        charset="utf8"
     )
 
     cur = db.cursor()
