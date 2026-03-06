@@ -9,7 +9,7 @@ import MySQLdb
 import sys
 
 
-def list_states():
+if __name__ == "__main__":
     """
     Connects to the MySQL database and prints all states
     ordered by states.id in ascending order.
@@ -27,14 +27,10 @@ def list_states():
     )
     
     cur = db.cursor()
-    cur.execute("SELECT * FROM states ORDER BY id ASC")
-    
+    cur.execute("SELECT * FROM states ORDER BY id ASC;")
+
     for row in cur.fetchall():
         print(row)
-    
+
     cur.close()
     db.close()
-
-
-if __name__ == "__main__":
-    list_states()
