@@ -23,7 +23,7 @@ def list_states():
         port=3306,
         user=username,
         passwd=password,
-        db=database,
+        db=database
     )
     
     cur = db.cursor()
