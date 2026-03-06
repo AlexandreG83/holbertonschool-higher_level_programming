@@ -3,6 +3,9 @@
 Module that lists all states from the database hbtn_0e_0_usa.
 Connects to a MySQL database using MySQLdb and prints all rows
 from the states table ordered by id.
+
+Usage:
+    ./0-select_states.py <user> <password> <database>
 """
 
 import MySQLdb
