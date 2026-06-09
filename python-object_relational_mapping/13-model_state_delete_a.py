@@ -10,20 +10,16 @@ from sqlalchemy.orm import sessionmaker
 from model_state import Base, State
 
 
-def delete_states_with_a():
-    """
-    Connects to the MySQL database and deletes all states
-    whose name contains the letter 'a'.
-    """
-    user = sys.argv[1]
-    password = sys.argv[2]
-    db_name = sys.argv[3]
-
-    engine = create_engine(
-        "mysql+mysqldb://{}:{}@localhost:3306/{}".format(
-            user, password, db_name),
-        pool_pre_ping=True
-    )
+if __name__ == "__main__":
+    username = sys.argv[1]  
+    password = sys.argv[2]  
+    database = sys.argv[3]  
+  
+    engine = create_engine(  
+        "mysql+mysqldb://{}:{}@localhost:3306/{}".format(  
+            username, password, database),  
+        pool_pre_ping=True  
+    )  
 
     Session = sessionmaker(bind=engine)
     session = Session()
@@ -35,7 +31,3 @@ def delete_states_with_a():
 
     session.commit()
     session.close()
-
-
-if __name__ == "__main__":
-    delete_states_with_a()
