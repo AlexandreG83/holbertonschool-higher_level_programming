@@ -6,6 +6,7 @@ from sqlalchemy.orm import declarative_base
 
 Base = declarative_base()
 
+
 class State(Base):
     """State class that links to the states table"""
 
