@@ -27,10 +27,11 @@ if __name__ == "__main__":
 
     query = (
         "SELECT * FROM states "
-        "WHERE BINARY name = %s "
-        "ORDER BY states.id ASC"
-    )
-    cur.execute(query, (state_name,))
+        "WHERE BINARY name = '{}' "
+        "ORDER BY states.id ASC;"
+    ).format(state_name)
+
+    cur.execute(query)
 
     rows = cur.fetchall()
     for row in rows:
