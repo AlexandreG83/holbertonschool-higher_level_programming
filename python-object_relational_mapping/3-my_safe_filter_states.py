@@ -2,7 +2,8 @@
 """
 Displays all values in states where name matches the argument
 Safe from SQL injection
-Usage: ./3-my_safe_filter_states.py <username> <password> <database> <state_name>
+Usage: ./3-my_safe_filter_states.py <username> <password>
+    <database> <state_name>
 """
 import MySQLdb
 import sys
@@ -23,7 +24,11 @@ if __name__ == "__main__":
 
     cur = db.cursor()
 
-    query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
+    query = (
+        "SELECT * FROM states "
+        "WHERE BINARY name = %s "
+        "ORDER BY states.id ASC"
+    )
     cur.execute(query, (state_name,))
 
     rows = cur.fetchall()
