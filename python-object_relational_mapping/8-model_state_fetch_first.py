@@ -11,11 +11,7 @@ from sqlalchemy.orm import sessionmaker
 from model_state import Base, State
 
 
-def fetch_first_state():
-    """
-    Connects to the MySQL database and prints the first State
-    ordered by states.id. Prints 'Nothing' if no state exists.
-    """
+if __name__ == "__main__":
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
@@ -37,7 +33,3 @@ def fetch_first_state():
         print("Nothing")
 
     session.close()
-
-
-if __name__ == "__main__":
-    fetch_first_state()
