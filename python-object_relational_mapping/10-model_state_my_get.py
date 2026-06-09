@@ -11,12 +11,7 @@ from sqlalchemy.orm import sessionmaker
 from model_state import Base, State
 
 
-def get_state_by_name():
-    """
-    Connects to the MySQL database and prints the id
-    of the state matching the name provided as argument.
-    If no state is found, prints 'Not found'.
-    """
+if __name__ == "__main__":
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
@@ -39,7 +34,3 @@ def get_state_by_name():
         print("Not found")
 
     session.close()
-
-
-if __name__ == "__main__":
-    get_state_by_name()
