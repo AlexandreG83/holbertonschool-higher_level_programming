@@ -1,13 +1,10 @@
 #!/usr/bin/python3
-"""
-Lists all states with a name starting with 'N'
-Usage: ./1-filter_states.py <username> <password> <database_name>
-"""
+"""Lists all states with a name starting with N."""
+
 import MySQLdb
 import sys
 
 if __name__ == "__main__":
-    """Connect to MySQL and print all states"""
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
@@ -19,17 +16,17 @@ if __name__ == "__main__":
         passwd=password,
         db=database,
         charset="utf8"
-        )
+    )
 
     cur = db.cursor()
+
     cur.execute(
         "SELECT * FROM states "
         "WHERE name LIKE 'N%' "
-        "ORDER BY states.id ASC"
+        "ORDER BY id ASC"
     )
 
-    rows = cur.fetchall()
-    for row in rows:
+    for row in cur.fetchall():
         print(row)
 
     cur.close()
