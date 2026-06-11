@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-#!/usr/bin/python3
 """
 List states matching a provided name from a MySQL database.
 
