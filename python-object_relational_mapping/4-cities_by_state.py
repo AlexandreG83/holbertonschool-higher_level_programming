@@ -16,7 +16,7 @@ if __name__ == "__main__":
         port=3306,
         user=username,
         passwd=password,
-        db=database
+        db=database,
         charset="utf8"
     )
 
