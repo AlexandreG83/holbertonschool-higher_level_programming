@@ -5,24 +5,24 @@ List states matching a provided name from a MySQL database.
 This script uses a parameterized query to prevent SQL injection.
 """
 
-import MySQLdb
 import sys
+import MySQLdb
+
 
 if __name__ == "__main__":
-    username = sys.argv[1]
+    user = sys.argv[1]
     password = sys.argv[2]
-    database = sys.argv[3]
+    db_name = sys.argv[3]
     state_name = sys.argv[4]
 
     db = MySQLdb.connect(
         host="localhost",
         port=3306,
-        user=username,
+        user=user,
         passwd=password,
-        db=database
+        db=db_name,
         charset="utf8"
     )
-
     cur = db.cursor()
 
     query = (
