@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 """
-Displays all values in states where name matches the argument
-Safe from SQL injection
-Usage: ./3-my_safe_filter_states.py <username> <password>
-    <database> <state_name>
+List states matching a provided name from a MySQL database.
+
+This script uses a parameterized query to prevent SQL injection.
 """
+
 import MySQLdb
 import sys
 
