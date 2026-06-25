@@ -12,12 +12,12 @@ def serialize_to_xml(dictionary, filename):
         dictionary (dict): Dictionary to serialize.
         filename (str): Output XML filename.
     """
-    root = ET.Element('data')
+    data_root = ET.Element('data')
     for key, value in dictionary.items():
-        child = ET.SubElement(root, key)
-        child.text = str(value)
-    tree = ET.ElementTree(root)
-    tree.write(filename, encoding='utf-8', xml_declaration=True)
+        item = ET.SubElement(data_root, key)
+        item.text = str(value)
+    xml_tree = ET.ElementTree(data_root)
+    xml_tree.write(filename, encoding='utf-8', xml_declaration=True)
 
 
 def deserialize_from_xml(filename):
@@ -30,11 +30,11 @@ def deserialize_from_xml(filename):
         dict: Deserialized dictionary.
     """
     try:
-        tree = ET.parse(filename)
-        root = tree.getroot()
-        result = {}
-        for child in root:
-            result[child.tag] = child.text
-        return result
+        xml_tree = ET.parse(filename)
+        data_root = xml_tree.getroot()
+        dict_data = {}
+        for item in data_root:
+            dict_data[item.tag] = item.text
+        return dict_data
     except Exception:
         return None
