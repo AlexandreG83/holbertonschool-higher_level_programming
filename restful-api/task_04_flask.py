@@ -13,7 +13,7 @@ users = {}
 @app.route("/")
 def home():
     """
-    Root endpoint
+    Point d'entrée racine
     """
     return "Welcome to the Flask API!"
 
@@ -21,7 +21,7 @@ def home():
 @app.route("/status")
 def status():
     """
-    Status endpoint
+    Point d'entrée de statut
     """
     return "OK"
 
@@ -29,7 +29,7 @@ def status():
 @app.route("/data")
 def get_usernames():
     """
-    Return list of all usernames
+    Retourne la liste de tous les noms d'utilisateurs
     """
     return jsonify(list(users.keys()))
 
@@ -37,7 +37,7 @@ def get_usernames():
 @app.route("/users/<username>")
 def get_user(username):
     """
-    Return full user object by username
+    Retourne l'objet utilisateur complet par nom d'utilisateur
     """
     if username not in users:
         return jsonify({"error": "User not found"}), 404
@@ -48,7 +48,7 @@ def get_user(username):
 @app.route("/add_user", methods=["POST"])
 def add_user():
     """
-    Add a new user via POST request
+    Ajoute un nouvel utilisateur via une requête POST
     """
     if not request.is_json:
         return jsonify({"error": "Invalid JSON"}), 400
