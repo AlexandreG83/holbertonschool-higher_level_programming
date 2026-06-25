@@ -26,7 +26,7 @@ def fetch_and_print_posts():
 def fetch_and_save_posts():
     """
     Récupère tous les articles depuis l'API et sauvegarde les champs sélectionnés
-    (id, title, body) dans un fichier CSV.
+    (id, title, body) dans un fichier CSV correspondant.
     """
     response = requests.get(API_URL)
     if response.status_code == 200:
