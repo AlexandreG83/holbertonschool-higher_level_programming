@@ -12,8 +12,8 @@ API_URL = "https://jsonplaceholder.typicode.com/posts"
 
 def fetch_and_print_posts():
     """
-    Fetch all posts from the API and print the status code
-    and titles of the posts.
+    Récupère tous les articles depuis l'API et affiche le code de statut
+    ainsi que les titres des articles.
     """
     response = requests.get(API_URL)
     print(f"Status Code: {response.status_code}")
@@ -25,8 +25,8 @@ def fetch_and_print_posts():
 
 def fetch_and_save_posts():
     """
-    Fetch all posts from the API and save selected fields
-    (id, title, body) into a CSV file.
+    Récupère tous les articles depuis l'API et sauvegarde les champs sélectionnés
+    (id, title, body) dans un fichier CSV.
     """
     response = requests.get(API_URL)
     if response.status_code == 200:
