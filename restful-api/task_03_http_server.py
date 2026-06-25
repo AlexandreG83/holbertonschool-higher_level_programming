@@ -9,12 +9,12 @@ import json
 
 class SimpleAPIHandler(BaseHTTPRequestHandler):
     """
-    Custom request handler for our simple API
+    Gestionnaire de requêtes personnalisé pour notre API simple
     """
 
     def _set_headers(self, status_code=200, content_type="text/plain"):
         """
-        Send HTTP headers
+        Envoie les en-têtes HTTP
         """
         self.send_response(status_code)
         self.send_header("Content-Type", content_type)
@@ -22,7 +22,7 @@ class SimpleAPIHandler(BaseHTTPRequestHandler):
 
     def do_GET(self):
         """
-        Handle GET requests
+        Gère les requêtes GET
         """
         if self.path == "/":
             self._set_headers(200, "text/plain")
@@ -58,7 +58,7 @@ class SimpleAPIHandler(BaseHTTPRequestHandler):
 
 def run(server_class=HTTPServer, handler_class=SimpleAPIHandler, port=8000):
     """
-    Start the HTTP server
+    Démarre le serveur HTTP
     """
     server_address = ("", port)
     httpd = server_class(server_address, handler_class)
