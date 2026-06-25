@@ -38,7 +38,7 @@ users = {
 @auth.verify_password
 def verify_password(username, password):
     """
-    Verify username and password for Basic Auth
+    Vérifie le nom d'utilisateur et le mot de passe pour l'authentification Basic
     """
     user = users.get(username)
     if user and check_password_hash(user["password"], password):
@@ -50,7 +50,7 @@ def verify_password(username, password):
 @auth.login_required
 def basic_protected():
     """
-    Basic Auth protected route
+    Route protégée par authentification Basic
     """
     return "Basic Auth: Access Granted"
 
@@ -58,7 +58,7 @@ def basic_protected():
 @app.route("/login", methods=["POST"])
 def login():
     """
-    Login endpoint to generate JWT token
+    Point de terminaison de connexion pour générer un token JWT
     """
     if not request.is_json:
         return jsonify({"error": "Invalid JSON"}), 401
@@ -81,7 +81,7 @@ def login():
 @jwt_required()
 def jwt_protected():
     """
-    JWT protected route
+    Route protégée par JWT
     """
     return "JWT Auth: Access Granted"
 
@@ -90,7 +90,7 @@ def jwt_protected():
 @jwt_required()
 def admin_only():
     """
-    Role-based protected route (admin only)
+    Route protégée basée sur les rôles (admin uniquement)
     """
     claims = get_jwt()
     role = claims.get("role")
