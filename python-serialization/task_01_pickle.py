@@ -32,8 +32,8 @@ class CustomObject:
             None if an exception occurs.
         """
         try:
-            with open(filename, 'wb') as f:
-                pickle.dump(self, f)
+            with open(filename, 'wb') as file:
+                pickle.dump(self, file)
         except Exception:
             return None
 
@@ -48,8 +48,8 @@ class CustomObject:
             CustomObject instance or None if an exception occurs.
         """
         try:
-            with open(filename, 'rb') as f:
-                obj = pickle.load(f)
+            with open(filename, 'rb') as file:
+                obj = pickle.load(file)
             return obj
         except Exception:
             return None
